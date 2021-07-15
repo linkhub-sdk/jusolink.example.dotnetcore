@@ -1,0 +1,39 @@
+﻿@{
+	ViewBag.Title = "주소검색 API ASP.NET Core Example.";
+	ViewBag.ContentTitle = "Search (목록조회)";
+}
+
+<div id="content">
+	<p class="heading1">@ViewData["Title"]</p>
+	<br />
+	<fieldset class="fieldset1">
+		<legend>@ViewData["ContentTitle"]</legend>
+		<ul>
+			<div class="fieldset4">
+				<input class="txtZipcode left" type="text" placeholder="우편번호" id="txtZipcode" name="txtZipcode" />
+				<input class="txtAddr" type="text" placeholder="주소" id="txtAddr" name="txtAddr">
+				<a href=javascript:openNewWindow("/Jusolink/Zipcode") class="find_btn_wrap"><p class="find_btn find_btn01 hand">주소찾기</p></a>
+			</div>
+		</ul>
+	</fieldset>
+</div>
+<script type="text/javascript">
+			function openNewWindow(window) {
+				window_width = 500;
+				window_height = 600;
+
+				screen_width = screen.width;
+				screen_height = screen.height;
+
+				open_x = (screen_width - window_width)/2;
+				open_y = (screen_height - window_height)/2;
+
+				open(window,"NewWindow","left="+open_x+", top="+open_y+", toolbar=no, location=no, status=no, resizable=yes, width="+window_width+", height="+window_height);
+			}
+
+			function putAddr(zipcode, addrTxt){
+				document.getElementById('txtZipcode').value = zipcode;
+				document.getElementById('txtAddr').value = addrTxt;
+			}
+</script>
+
